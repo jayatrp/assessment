@@ -26,13 +26,13 @@ def population_change(prev_population:int, cur_population:int)->str:
 response = requests.get("https://datausa.io/api/data?drilldowns=State&measures=Population")
 
 # Parse the JSON data from the response
-data = json.loads(response.text)
+responseData = json.loads(response.text)
 
 # Create a default dictionary to store the data
 population_data = defaultdict(lambda : defaultdict(int))
 
 # Iterate through the data and store it in the dictionary
-for item in data:
+for item in responseData["data"]:
     state = item["State"]
     year = item["Year"]
     population = item["Population"]
