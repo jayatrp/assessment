@@ -49,7 +49,7 @@ with open("population_data.csv", "w", newline="") as csvfile:
     for state, years_data in population_data.items():
         population_change_list = []
         for year, population in years_data.items():
-            if year == '2019':
+            if year == '2019 Factors':
                 factors = prime_factors(population)
                 factors = ';'.join(str(x) for x in factors)
                 years_data[year] = f"{population} ({factors})"
